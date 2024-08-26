@@ -10,10 +10,6 @@ const server = http.createServer(app);
 const io = new Server(server);
 app.use(express.static(path.resolve("")));
 
-app.get("/", (req, res) => {
-    return res.sendFile("index.html")
-});
+app.get("/", (req, res) => res.sendFile("index.html"));
 
-server.listen(port, () => {
-    console.log(`Port connected to ${port}.`);
-});
+server.listen(port, () => console.log(`Port connected to ${port}.`));

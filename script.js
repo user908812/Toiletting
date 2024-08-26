@@ -11,6 +11,13 @@ let forwardKey = 'd';
 let backKey = 'a';
 let jumpKey = ' ';
 
+// For TV Players
+let settingsMenuKeyTV = 'Enter';
+let attackKeyTV = 'ArrowDown';
+let forwardKeyTV = 'ArrowRight';
+let backKeyTV = 'ArrowLeft';
+let jumpKeyTV = 'ArrowUp';
+
 let score = 0;
 let playerSpeed = 15;
 let playerHealth = 20;
@@ -61,8 +68,8 @@ const skibidiToiletWidthInput = document.getElementById('skibidi-toilet-width-in
 const skibidiToiletHeightInput = document.getElementById('skibidi-toilet-height-input');
 const playerHealthInput = document.getElementById('player-health-input');
 const skibidiToiletHealthInput = document.getElementById('skibidi-toilet-health-input');
-const windowWidthInput = document.getElementById('window-width-input');
-const windowHeightInput = document.getElementById('window-height-input');
+const fontChangerDatalistInput = document.getElementById('fontChangerInput');
+const fontSizeInput = document.getElementById('font-size-input');
 
 const tryAgain = () => window.location.reload();
 
@@ -87,6 +94,7 @@ function checkTheme() {
         changeThemeSettingsMenuButton.style.color = 'grey';
         playerLoseDialogScreen.style.background = 'grey';
         playerWonDialogScreen.style.background = 'grey';
+        settingsDialogScreen.style.transition = 'all 1s 0.2s';
     } else {
         settingsDialogScreen.style.background = 'white';
         changeThemeSettingsMenuButton.innerHTML = 'Dark';
@@ -133,8 +141,6 @@ if (!player.style.left) player.style.left = 0;
 skibidiToilet.style.top = parseInt(gameField.style.height) - parseInt(skibidiToilet.style.height) - 100 + 'px';
 skibidiToilet.style.left = parseInt(gameField.style.width) - parseInt(skibidiToilet.style.width) + 'px';
 
-playerSpeedInput.addEventListener('change', (e) => playerSpeed = e.target.value);
-
 function setEntitySize(entity) {
     if (entity === 'player') {
     playerWidth = playerWidthInput.value;
@@ -161,10 +167,9 @@ function setGameKeyBinds() {
     jumpKey = jumpKeyInput.value;
 }
 
-function setWindowResolution() {
-    windowResolution[0] = windowWidthInput.value;
-    windowResolution[1] = windowHeightInput.value;
-}
+const setChosenFont = () => document.body.style.fontFamily = fontChangerDatalistInput.value;
+const setChosenFontSize = () => document.body.style.fontSize = `${fontSizeInput.value}px`;
+playerSpeedInput.addEventListener('change', (e) => playerSpeed = e.target.value);
 
 function checkPlayerCheating() {
     if (parseInt(player.style.left) < 0) {
@@ -205,6 +210,34 @@ function getKeyboardEvents(event) {
             addAction({entity: player, action: 'go_back', miscProperty: currentPlayerPosX});
             break;
         case jumpKey:
+            addAction({entity: player, action: 'jump', miscProperty: 550});
+            break;
+            
+        // For TV Players     
+        case settingsMenuKeyTV:
+            event.preventDefault();
+            if (!settingsDialogScreen.open) {
+                player.hidden = true;
+                skibidiToilet.hidden = true;
+                settingsDialogScreen.showModal();
+                log('Server: Settings menu turned on.');
+                } else {
+                player.hidden = false;
+                skibidiToilet.hidden = false;
+                settingsDialogScreen.close();
+                log('Server: Settings menu turned off.');
+                }
+            break;
+        case attackKeyTV:
+            addAction({entity: player, action: 'attack', miscProperty: currentPlayerPosX + 30});
+            break;
+        case forwardKeyTV:
+            addAction({entity: player, action: 'go_forward', miscProperty: currentPlayerPosX});
+            break;
+        case backKeyTV:
+            addAction({entity: player, action: 'go_back', miscProperty: currentPlayerPosX});
+            break;
+        case jumpKeyTV:
             addAction({entity: player, action: 'jump', miscProperty: 550});
             break;
     }
@@ -312,7 +345,6 @@ function checkEntityHealth() {
         clearInterval(scoreInterval);
         player.hidden = true;
         skibidiToilet.hidden = true;
-        scoreDisplayTitleOnScreen.innerHTML = score;
         playerWonDialogScreen.showModal();
         gameEnded = true;
     }

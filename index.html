@@ -70,7 +70,7 @@
                 <section id="won-screen-left-right-section">
                     <div id="left-side-won-dialog-screen">
                         <h1 id="you-won-title-won-dialog-screen">You Won!</h1>
-                        <p id="score-won-dialog-screen">Score: <span class="screen-score-display"></span></p>
+                        <p id="score-won-dialog-screen">Score: <span class="screen-score-display">69420</span></p>
                         <button onclick="tryAgain()" id="try-again-after-won-button">Try Again</button>
                     </div>
                     <div id="won-screen-vertical-line"></div>
@@ -117,6 +117,34 @@
                 <div>
                     <label for="player-speed-input">Player speed </label>
                     <input type="range" name="player-speed-input" id="player-speed-input" min="0" max="100" value="15">
+                </div>
+
+                <hr>
+
+                <div>
+                    <h2>Font Options</h2>
+
+                    <div>
+                        <label for="fonts-changer-input">Font </label>
+                        <input list="fonts-changer-input" name="fontChangerInput" id="fontChangerInput" placeholder="Select..." autocomplete="off" onchange="setChosenFont()">
+
+                        <datalist id="fonts-changer-input">
+                            <option value="Arial">arial-font</option>
+                            <option value="Courier">courier-font</option>
+                            <option value="Cursive">cursive-font</option>
+                            <option value="Fantasy">fantasy-font</option>
+                            <option value="Monaco">monaco-font</option>
+                            <option value="Monospace">monospace-font</option>
+                            <option value="Optima">optima-font</option>
+                            <option value="Serif">serif-font</option>
+                            <option value="Tahoma">tahoma-font</option>
+                        </datalist>
+                    </div>
+
+                    <div style="margin-bottom: 5px;">
+                        <label for="font-size-input">Size</label>
+                        <input type="number" onchange="setChosenFontSize()" name="font-size-input" id="font-size-input" min="1" max="999" value="22">
+                    </div>
                 </div>
 
                 <hr>
