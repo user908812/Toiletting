@@ -81,7 +81,7 @@
             </dialog>
 
             <dialog id="settings-menu-screen">
-                <h1><span style="vertical-align: top;"><img width="58" height="58" src="settings-icon.png" alt="settings-icon"></span> Settings</h1>
+                <h1><span style="vertical-align: top;"><img width="58" height="58" src="settings-icon.png" alt="settings-icon"></span>Game Settings</h1>
                 <hr>
                 
                 <br>
@@ -153,12 +153,12 @@
                     <h2>Player size</h2>
                     <div>
                         <label for="player-width-input">Player width </label>
-                        <input type="text" name="player-width-input" id="player-width-input"> px
+                        <input type="text" name="player-width-input" placeholder="50" id="player-width-input"> px
                     </div>
 
                     <div>
                         <label for="player-height-input">Player height </label>
-                        <input type="text" name="player-height-input" id="player-height-input"> px
+                        <input type="text" name="player-height-input" placeholder="100" id="player-height-input"> px
                     </div>
                     <div><button onclick="setEntitySize('player')" id="set-player-size-settings-menu-button">Set</button></div>
                 </div>
@@ -169,12 +169,12 @@
                     <h2>Toilet size</h2>
                     <div>
                         <label for="skibidi-toilet-width-input">Toilet width </label>
-                        <input type="text" name="skibidi-toilet-width-input" id="skibidi-toilet-width-input"> px
+                        <input type="text" name="skibidi-toilet-width-input" placeholder="140" id="skibidi-toilet-width-input"> px
                     </div>
 
                     <div>
                         <label for="skibidi-toilet-height-input">Toilet height </label>
-                        <input type="text" name="skibidi-toilet-height-input" id="skibidi-toilet-height-input"> px
+                        <input type="text" name="skibidi-toilet-height-input" placeholder="200" id="skibidi-toilet-height-input"> px
                     </div>
                     <div><button onclick="setEntitySize('skibidiToilet')" id="set-skibidi-toilet-size-settings-menu-button">Set</button></div>
                 </div>
@@ -185,23 +185,23 @@
                     <h2>Controls</h2>
                     <div>
                         <label for="menu-key-input">Menu </label>
-                        <input type="text" name="menu-key-input" id="menu-key-input">
+                        <input type="text" name="menu-key-input" placeholder="Escape / Enter" id="menu-key-input">
                     </div>
                     <div>
                         <label for="attack-key-input">Attack </label>
-                        <input type="text" name="attack-key-input" id="attack-key-input">
+                        <input type="text" name="attack-key-input" placeholder="R / ↓" id="attack-key-input">
                     </div>
                     <div>
                         <label for="forward-key-input">Forward </label>
-                        <input type="text" name="forward-key-input" id="forward-key-input">
+                        <input type="text" name="forward-key-input" placeholder="D / →" id="forward-key-input">
                     </div>
                     <div>
                         <label for="back-key-input">Back </label>
-                        <input type="text" name="back-key-input" id="back-key-input">
+                        <input type="text" name="back-key-input" placeholder="A / ←" id="back-key-input">
                     </div>
                     <div>
                         <label for="jump-key-input">Jump </label>
-                        <input type="text" name="jump-key-input" id="jump-key-input">
+                        <input type="text" name="jump-key-input" placeholder="SPACE / ↑" id="jump-key-input">
                     </div>
                     <div><button onclick="setGameKeyBinds()" id="set-key-binds-settings-menu-button">Set</button></div>
                 </div>

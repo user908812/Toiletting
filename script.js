@@ -111,14 +111,15 @@ scoreInterval = setInterval(() => {
     playerScoreDisplay.innerHTML = score;
 }, 1500);
 
-log('Server: Succesfully joined the game.');
-
 setInterval(() => {
     playerImage.width = playerWidth;
     playerImage.height = playerHeight;
     skibidiToiletImage.width = skibidiToiletWidth;
     skibidiToiletImage.height = skibidiToiletHeight;
 }, 100);
+
+log('Server: Succesfully joined the game.');
+
 player.style.width = playerWidth + 'px';
 player.style.height = playerHeight + 'px';
 skibidiToilet.style.width = skibidiToiletWidth + 'px';
@@ -289,13 +290,13 @@ function addAction(props) {
     }
 }
 
-function addSkibidiAnimation() {
+function addSkibidiToiletAnimation() {
     skibidiToilet.classList.add('skibidiAnimation');
     setTimeout(() => {
         skibidiToilet.classList.remove('skibidiAnimation');
     }, skibidiToiletJumpAnimationDuration);
 }
-addSkibidiAnimation();
+addSkibidiToiletAnimation();
 
 function skibidiAttack() {
         setTimeout(() => {
@@ -350,6 +351,12 @@ function checkEntityHealth() {
     }
 }
 setInterval(checkEntityHealth, 100);
+
+function addSkibidiToiletFlyingAnimation() {
+    skibidiToilet.classList.add('skibidiToiletFlyingAnimation');
+    setTimeout(() => skibidiToilet.classList.remove('skibidiToiletFlyingAnimation'), 6000);
+}
+setInterval(addSkibidiToiletFlyingAnimation, 58000);
 
 function isColliding(item1, item2) {
     const i1 = item1.getBoundingClientRect();
