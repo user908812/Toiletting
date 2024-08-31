@@ -116,7 +116,7 @@
 
                 <div>
                     <label for="player-speed-input">Player speed </label>
-                    <input type="range" name="player-speed-input" id="player-speed-input" min="0" max="100" value="15">
+                    <input type="range" name="player-speed-input" id="player-speed-input" onchange="setPlayerSpeed()" min="0" max="100" value="15">
                 </div>
 
                 <hr>
@@ -185,23 +185,23 @@
                     <h2>Controls</h2>
                     <div>
                         <label for="menu-key-input">Menu </label>
-                        <input type="text" name="menu-key-input" placeholder="Escape / Enter" id="menu-key-input">
+                        <input type="text" minlength="1" maxlength="10" name="menu-key-input" placeholder="Escape / Enter" id="menu-key-input">
                     </div>
                     <div>
                         <label for="attack-key-input">Attack </label>
-                        <input type="text" name="attack-key-input" placeholder="R / ↓" id="attack-key-input">
+                        <input type="text" minlength="1" maxlength="10" name="attack-key-input" placeholder="R / ↓" id="attack-key-input">
                     </div>
                     <div>
                         <label for="forward-key-input">Forward </label>
-                        <input type="text" name="forward-key-input" placeholder="D / →" id="forward-key-input">
+                        <input type="text" minlength="1" maxlength="10" name="forward-key-input" placeholder="D / →" id="forward-key-input">
                     </div>
                     <div>
                         <label for="back-key-input">Back </label>
-                        <input type="text" name="back-key-input" placeholder="A / ←" id="back-key-input">
+                        <input type="text" minlength="1" maxlength="10" name="back-key-input" placeholder="A / ←" id="back-key-input">
                     </div>
                     <div>
                         <label for="jump-key-input">Jump </label>
-                        <input type="text" name="jump-key-input" placeholder="SPACE / ↑" id="jump-key-input">
+                        <input type="text" minlength="1" maxlength="10" name="jump-key-input" placeholder="SPACE / ↑" id="jump-key-input">
                     </div>
                     <div><button onclick="setGameKeyBinds()" id="set-key-binds-settings-menu-button">Set</button></div>
                 </div>
